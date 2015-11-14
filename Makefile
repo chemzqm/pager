@@ -14,6 +14,6 @@ doc:
 test-coveralls:
 	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
 	@node_modules/.bin/karma start --single-run && \
-		cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+		cat ./coverage/lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 .PHONY: test
