@@ -2,6 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/chemzqm/pager.svg)](http://travis-ci.org/chemzqm/pager)
 [![Coverage Status](https://coveralls.io/repos/chemzqm/pager/badge.svg?branch=master&service=github)](https://coveralls.io/github/chemzqm/pager?branch=master)
+
 A basic pager component
 
 
