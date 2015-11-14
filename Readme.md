@@ -20,6 +20,7 @@ A pager component works with list of no effort `Pager(list)`
 ``` js
 var Pager = require('pager')
 var pager = new Pager
+document.body.appendChild(pager.el)
 pager.el.appendTo('body')
 pager.total(50).perpage(10).render()
 pager.on('show', function(n){
