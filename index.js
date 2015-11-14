@@ -50,15 +50,15 @@ Pager.prototype.bind = function (list, opts) {
     self.perpage(v)
   })
   this.defineProperty(list, opts, 'total', function () {
-      return self._total
+    return self._total
   }, function (v) {
-      self.total(v)
-      self.select(self.current)
+    self.total(v)
+    self.select(self.current)
   })
   this.defineProperty(list, opts, 'curpage', function () {
-      return self.current
+    return self.current
   }, function (v) {
-      self.select(v)
+    self.select(v)
   })
 }
 
