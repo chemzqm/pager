@@ -1,0 +1,65 @@
+{
+  "name": "component-pager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test-karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/chemzqm/component-pager.git"
+  },
+  "keywords": [],
+  "author": "chemzqm@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chemzqm/component-pager/issues"
+  },
+  "homepage": "https://github.com/chemzqm/component-pager#readme",
+  "devDependencies": {
+    "component-tap-event": "^1.1.0",
+    "connect-livereload": "^0.5.3",
+    "coveralls": "^2.11.4",
+    "css-loader": "^0.22.0",
+    "growl": "^1.8.1",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-serve": "^1.2.0",
+    "gulp-util": "^3.0.7",
+    "html-loader": "^0.3.0",
+    "istanbul": "^0.4.0",
+    "istanbul-instrumenter-loader": "^0.1.3",
+    "json-loader": "^0.5.3",
+    "karma": "^0.13.15",
+    "karma-cli": "^0.1.1",
+    "karma-coverage": "^0.5.3",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
+    "karma-webpack": "^1.7.0",
+    "karma-wrap-preprocessor": "^0.1.0",
+    "mocha": "^2.3.3",
+    "mocha-loader": "^0.7.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "component-classes": "^1.2.4",
+    "component-emitter": "^1.2.0",
+    "component-events": "^1.0.9",
+    "component-query": "0.0.3",
+    "domify": "^1.4.0"
+  },
+  "browser": {
+    "tap-event": "component-tap-event",
+    "emitter": "component-emitter",
+    "events": "component-events",
+    "query": "component-query",
+    "classes": "component-classes"
+  },
+  "style": "./pager.css"
+}

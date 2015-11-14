@@ -1,0 +1,37 @@
+.pager {
+  margin-top: 15px;
+}
+.pager {
+  margin-top: 10px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.pager li {
+  display: inline-block;
+}
+
+li.prev.pager-hide a,
+li.next.pager-hide a {
+  color: #999;
+  border-color: #999;
+}
+.pager li.active a {
+  font-weight: bold;
+  border-color: #ddd;
+}
+.pager li a {
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px 8px;
+  margin: 0 2px;
+  color: #444;
+}
+
+.pager li.prev a,
+.pager li.next a{
+  font-weight: bolder;
+  border: 1px solid #eee;
+}
+
+
