@@ -6,20 +6,21 @@ var classes = require('classes')
 var tap = require('tap-event')
 var template = require('./template.html')
 
+var defineProperty = Object.defineProperty
 /**
  * Init pager with optional list for bind
  *
  * @param {Object} list
  * @api public
  */
-function Pager (list) {
+function Pager (list, opts) {
   if (!(this instanceof Pager)) return new Pager(list)
   var el = this.el = domify(template)
   el.className = 'pager'
   this.events = events(el, this)
   this.events.bind('click li > a')
   this.events.bind('touchstart li > a', 'ontap')
-  if (list) this.bind(list)
+  if (list) this.bind(list, opts)
 }
 
 Emitter(Pager.prototype)
@@ -34,30 +35,37 @@ Pager.prototype.prev = function () {
   this.show(Math.max(0, this.current - 1))
 }
 
-Pager.prototype.bind = function (list) {
-  this.perpage(list.perpage || 5)
-  var total = list.total || 0
-  this.total(total)
+Pager.prototype.bind = function (list, opts) {
+  opts = opts || {}
+  this.perpage(list[opts.perpage || 'perpage'] || 5)
+  this.total(list.total || 0)
+  this.select(list.curpage || 0)
   var self = this
   this.on('show', function (n) {
-    list.select(n)
+    list[opts.select || 'select'](n)
   })
-  Object.defineProperty(list, 'total', {
-    set: function (v) {
+  this.defineProperty(list, opts, 'perpage', function () {
+    return self._perpage
+  }, function (v) {
+    self.perpage(v)
+  })
+  this.defineProperty(list, opts, 'total', function () {
+      return self._total
+  }, function (v) {
       self.total(v)
       self.select(self.current)
-    },
-    get: function () {
-      return self._total
-    }
   })
-  Object.defineProperty(list, 'curpage', {
-    set: function (v) {
-      self.select(v)
-    },
-    get: function () {
+  this.defineProperty(list, opts, 'curpage', function () {
       return self.current
-    }
+  }, function (v) {
+      self.select(v)
+  })
+}
+
+Pager.prototype.defineProperty = function (list, opts, name, get, set) {
+  defineProperty(list, opts[name] || name, {
+    set: set,
+    get: get
   })
 }
 
@@ -100,6 +108,7 @@ Pager.prototype.pages = function () {
  */
 Pager.prototype.total = function (n) {
   this._total = n
+  return this
 }
 
 Pager.prototype.select = function (n) {
@@ -118,6 +127,7 @@ Pager.prototype.select = function (n) {
  */
 Pager.prototype.perpage = function (n) {
   this._perpage = n
+  return this
 }
 
 /**
@@ -132,10 +142,24 @@ Pager.prototype.show = function (n) {
   return this
 }
 
+/**
+ * limit the pagenation li 
+ *
+ * @param {Number} count
+ * @return {this}
+ * @api public
+ */
 Pager.prototype.limit = function (count) {
   this._limit = Number(count)
+  return this
 }
 
+/**
+ * Unbind events and remove nodes
+ *
+ * @return {undefined}
+ * @api public
+ */
 Pager.prototype.remove = function () {
   this.off()
   this.events.unbind()

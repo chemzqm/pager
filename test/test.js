@@ -81,6 +81,9 @@ describe('Pager', function () {
     assert.equal(links.length, 8)
     pager.total(100)
     assert.equal(list.total, 100)
+    list.perpage = 10
+    assert.equal(list.perpage, 10)
+    assert.equal(pager._perpage, 10)
   })
 
   it('should react to link click', function () {

@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/chemzqm/pager.svg)](http://travis-ci.org/chemzqm/pager)
 [![Coverage Status](https://coveralls.io/repos/chemzqm/pager/badge.svg?branch=master&service=github)](https://coveralls.io/github/chemzqm/pager?branch=master)
 
-A basic pager component
+A pager component works with list of no effort `Pager(list)`
 
 
 ## Features
@@ -33,6 +33,17 @@ pager.on('show', function(n){
   - `change` (n) emitted when page number changed (0-based)
 
 ## API
+
+### Pager([list], [opts])
+
+  Init pager with optional binding list
+
+### Pager#bind(list, opts)
+  Bind to list with optional options
+  * `opts.curpage` current page default `curpage`
+  * `opts.total`   total numbers default `total`
+  * `opts.perpage` perpage count default `perpage`
+  * `opts.select`  select page function default `select`
 
 ### Pager#total(n)
 
