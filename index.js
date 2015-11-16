@@ -82,6 +82,7 @@ Pager.prototype.next = function () {
 Pager.prototype.onclick = function (e) {
   e.preventDefault()
   var el = e.target.parentNode
+  if (classes(el).has('pager-hide')) return
   if (classes(el).has('prev')) return this.prev()
   if (classes(el).has('next')) return this.next()
   this.show(el.textContent - 1)
