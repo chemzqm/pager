@@ -41,10 +41,10 @@ pager.on('show', function(n){
 
 ### Pager#bind(list, opts)
   Bind to list with optional options
-  * `opts.curpage` current page default `curpage`
-  * `opts.total`   total numbers default `total`
-  * `opts.perpage` perpage count default `perpage`
-  * `opts.select`  select page function default `select`
+  * `opts.curpage` attribute of current page default `curpage`
+  * `opts.total`   attribute of total numbers default `total`
+  * `opts.perpage` attribute of perpage count default `perpage`
+  * `opts.select`  attribute of select page function default `select`
 
 ### Pager#total(n)
 
