@@ -1,7 +1,7 @@
 {
   "name": "component-pager",
-  "version": "0.0.3",
-  "description": "",
+  "version": "0.0.4",
+  "description": "A pager component works with list of no effort",
   "main": "index.js",
   "directories": {
     "test": "test"

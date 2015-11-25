@@ -5,6 +5,7 @@
 
 A pager component works with list of no effort `Pager(list)`
 
+`Object.defineProperty` is used for binding properties in list.
 
 ## Features
 
@@ -19,13 +20,12 @@ A pager component works with list of no effort `Pager(list)`
 
 ``` js
 var Pager = require('pager')
-var pager = new Pager
-document.body.appendChild(pager.el)
-pager.el.appendTo('body')
-pager.total(50).perpage(10).render()
-pager.on('show', function(n){
-  console.log('selected page %d', n)
-})
+var Grid = require('exgrid')
+var grid = new Grid(template)
+var pager = new Pager(grid)
+var parent = document.getElementById('grid')
+parent.appendChild(grid.el)
+parent.appendChild(pager.el)
 ```
 
 ## Events
@@ -41,10 +41,10 @@ pager.on('show', function(n){
 
 ### Pager#bind(list, opts)
   Bind to list with optional options
-  * `opts.curpage` attribute of current page default `curpage`
-  * `opts.total`   attribute of total numbers default `total`
-  * `opts.perpage` attribute of perpage count default `perpage`
-  * `opts.select`  attribute of select page function default `select`
+  * `opts.curpage` property name in list for current page default `curpage`
+  * `opts.total`   property name in list for total numbers default `total`
+  * `opts.perpage` property name in list for count default `perpage`
+  * `opts.select`  property name in list for select page function default `select`
 
 ### Pager#total(n)
 
