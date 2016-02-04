@@ -44,7 +44,7 @@
     "mocha": "^2.3.3",
     "mocha-loader": "^0.7.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.4",
+    "webpack": "^1.12.13",
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
