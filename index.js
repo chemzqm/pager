@@ -170,13 +170,19 @@ Pager.prototype.remove = function () {
 }
 
 Pager.prototype.render = function () {
+  var el = this.el
   var limit = this._limit || Infinity
   var curr = this.current
   var pages = this.pages()
-  var el = this.el
   var prev = query('.prev', el)
   var next = query('.next', el)
   var links = ''
+
+  if (pages == 0) {
+    el.style.display = 'none'
+  } else {
+    el.style.display = 'block'
+  }
 
   // remove old
   var lis = [].slice.call(el.children)
