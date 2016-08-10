@@ -188,7 +188,7 @@ Pager.prototype.render = function () {
   var lis = [].slice.call(el.children)
   for (var i = 0, len = lis.length; i < len; i++) {
     var li = lis[i]
-    if (classes(li).has('page')) {
+    if (classes(li).has('page') || classes(li).has('dots')) {
       el.removeChild(li)
     }
   }
